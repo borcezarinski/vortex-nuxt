@@ -1,0 +1,26 @@
+{
+  "name": "vortexcommk",
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "generate": "nuxt generate",
+    "start": "nuxt start"
+  },
+  "dependencies": {
+    "convert-csv-to-json": "^2.0.0",
+    "csv-parse": "^5.3.6",
+    "csvtojson": "^2.0.10",
+    "file-url": "^4.0.0",
+    "jquery": "^3.6.4",
+    "js-cookie": "^3.0.1",
+    "node-fetch": "^3.3.1",
+    "nuxt": "^2.16.1",
+    "papaparse": "^5.4.0",
+    "sass": "^1.58.3",
+    "vue-typer": "^1.2.0"
+  },
+  "devDependencies": {
+    "@mdi/font": "^7.1.96",
+    "@nuxtjs/vuetify": "^1.12.3"
+  }
+}
