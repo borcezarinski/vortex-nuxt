@@ -150,18 +150,6 @@ export default{
               icon: "/assets/images/izarc-ikona.ico",
               link:"http://izarc.org/",
               description:"Бесплатен универзален архивер/пакувач"
-            },
-            {
-              name: "TeamViewer",
-              icon: "/assets/images/teamviewer-ikona.ico",
-              link:"https://www.teamviewer.com/en/",
-              description:"Овозможува пристап до било кој PC со што му го превземате екранот и работите на него - Remote Desktop"
-            },
-            {
-              name: "Skype",
-              icon: "/assets/images/skype-ikona.ico",
-              link:"https://www.skype.com/en/get-skype/",
-              description:"Најпопуларниот програм за видео разговори и телефонски повици насекаде низ светот"
             }
           ]
 
