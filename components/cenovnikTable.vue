@@ -9,6 +9,7 @@
       <v-btn color="#107C41" class="mt-2 mr-3"><a href="/Cenovnici/akcija.xls" download class="text-white text-decoration-none w-100">Акција<v-icon>mdi-file-excel</v-icon></a></v-btn>
     </v-col>
   </v-row>
+
     <v-row class="flex-column-reverse flex-md-row">
 
       <v-col cols="12" md="6" class="mb-3">
@@ -17,10 +18,13 @@
         <v-col cols="12" md="6" v-if="filterMode">
           <category-dropdown  @filterByCategory="filterByCategory($event)" />
         </v-col>
+      <v-col cols="12" :md="filterMode ? 12 : 6">
+        <v-alert color="info">Цените се со вклучено ДДВ.</v-alert>
+      </v-col>
 
 
     </v-row>
-    <v-alert color="info">Цените се со вклучено ДДВ.</v-alert>
+
   <v-data-table     :headers="headers" :search="search" :key="'datatable-' + datatableKey"
                    :items="cenovnik" class="elevation-1 table-striped">
     <template #item.name="{ item }">
@@ -60,7 +64,10 @@ export default{
   },
   computed:{
     headers(){
-      return  ["category", "brand", "name", "akcija", "price", "description","warranty", "tax","lager"].map((h, index) => ({value: h, text:this.csvHeaders[index]}));
+      return this.$vuetify.breakpoint.smAndDown ? ["category", "brand", "name", "price", "description","warranty", "tax","lager"].map((h, index) => ({value: h, text:this.csvHeaders[index]}))  :  ["category", "brand", "name", "akcija", "price", "description","warranty", "tax","lager"].map((h, index) => ({value: h, text:this.csvHeaders[index]}));
+    },
+    csvHeaders(){
+      return this.$vuetify.breakpoint.smAndDown ? ["Категорија","Brand","Име на производ","Цена(ден)","Карактеристики","Гар(м)","ДДВ","лагер"] : ["Категорија","Brand","Име на производ","АКЦИЈА","Цена(ден)","Карактеристики","Гар(м)","ДДВ","лагер"];
     }
   },
   props:{
@@ -77,7 +84,6 @@ export default{
   },
   data(){
     return{
-      csvHeaders:["Категорија","Brand","Име на производ","АКЦИЈА","Цена","Карактеристики","Гар(м)","ДДВ","лагер"],
       cenovnik: cenovnikJson,
       rcenovnik: cenovnikJson,
       search:"",

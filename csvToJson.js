@@ -12,7 +12,7 @@ parseCsv = () =>{
                 brand: row[1],
                 name: row[2],
                 akcija: row[3],
-                price: row[4],
+                price: row[4].replace(" ден.", "").replace(",",""),
                 description: row[5],
                 warranty: row[6],
                 tax: row[7],
