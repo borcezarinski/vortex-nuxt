@@ -13,7 +13,7 @@
     <v-row class="flex-column-reverse flex-md-row">
 
       <v-col cols="12" md="6" class="mb-3">
-        <v-text-field v-model="search" outlined placeholder="Пребарувај продукти" prepend-icon="mdi-search" label="Пребарувај" />
+        <v-text-field v-model="search_temp" @input="searchDatatable" outlined placeholder="Пребарувај продукти" prepend-icon="mdi-search" label="Пребарувај" />
       </v-col>
         <v-col cols="12" md="6" v-if="filterMode">
           <category-dropdown  @filterByCategory="filterByCategory($event)" />
@@ -28,27 +28,29 @@
   <v-data-table     :headers="headers" :search="search" :key="'datatable-' + datatableKey"
                    :items="cenovnik" class="elevation-1 table-striped">
     <template #item.name="{ item }">
-      <long-string :long-string="item.name" :character-cut-off="35" v-if="$vuetify.breakpoint.mdAndUp"  />
-      <span v-else>{{ item.name }}</span>
+      <long-string  :long-string="item.name" :character-cut-off="35" v-if="$vuetify.breakpoint.mdAndUp"  />
+      <span v-else >{{ item.name }}</span>
     </template>
     <template #item.description="{ item }">
       <long-string :long-string="item.description" :character-cut-off="65" />
     </template>
   </v-data-table>
-
   </div>
 </template>
 <script>
-import _ from 'lodash';
 import cenovnikJson from '/static/Cenovnici/cenovnik.json';
-
+import _ from 'lodash';
 import LongString from "@/components/ui/longString";
 import VortexLoader from "@/components/ui/vortexLoader";
 import categoryDropdown from "@/components/dropdown/categoryDropdown";
 export default{
   name:"cenovnik",
-  components: {VortexLoader, LongString, categoryDropdown},
+  components: { VortexLoader, LongString, categoryDropdown},
   methods:{
+    searchDatatable: _.debounce(function() {
+      this.search = _.clone(this.search_temp);
+      this.datatableKey++;
+    },600),
     filterByCategory(category){
       this.cenovnik = category ? _.cloneDeep(this.rcenovnik.filter(x => x.category == category)) : _.cloneDeep(this.rcenovnik);
       this.datatableKey++;
@@ -70,6 +72,15 @@ export default{
       return this.$vuetify.breakpoint.smAndDown ? ["Категорија","Brand","Име на производ","Цена(ден)","Карактеристики","Гар(м)","ДДВ","лагер"] : ["Категорија","Brand","Име на производ","АКЦИЈА","Цена(ден)","Карактеристики","Гар(м)","ДДВ","лагер"];
     }
   },
+  watch:{
+    search:{
+      handler(val){
+      _.debounce(function(){
+        this.search = val;
+      },600)
+      }
+    }
+  },
   props:{
     simple:{
       type:Boolean,
@@ -86,7 +97,8 @@ export default{
     return{
       cenovnik: cenovnikJson,
       rcenovnik: cenovnikJson,
-      search:"",
+      search_temp:"",
+      search: "",
       datatableKey:1
     }
   }

@@ -10,7 +10,6 @@
         <ul class="list-unstyled">
           <li class="mb-3"><a href="mailto:info@vortex.com.mk" class="text-decoration-none"><v-icon class="mr-2">mdi-email</v-icon>info@vortex.com.mk</a></li>
           <li class="mb-3"><a href="tel:+389 02 2462 462" class="text-decoration-none"><v-icon class="mr-2">mdi-phone</v-icon>+389 02 2462 462</a></li>
-          <li class="mb-3"><a href="tel:+389 02 2400 450" class="text-decoration-none"><v-icon class="mr-2">mdi-phone</v-icon>+389 02 2400 450</a></li>
                </ul>
       </v-col>
       <v-col cols="12" md="6">

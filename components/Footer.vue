@@ -12,11 +12,6 @@
               <li class=""><a href="tel:+389 02 2462 462" class="text-decoration-none"><v-icon class="mr-2">mdi-phone</v-icon>+389 02 2462 462</a></li>
             </ul>
         </v-col>
-        <v-col cols="12" md="4" lg="3">
-          <ul class="list-unstyled mb-0">
-             <li class=""><a href="tel:+389 02 2400 450" class="text-decoration-none"><v-icon class="mr-2">mdi-phone</v-icon>+389 02 2400 450</a></li>
-          </ul>
-        </v-col>
 <!--        <v-col cols="12" lg="3">
           <ul class="list-unstyled mb-0 px-md-0">
             <li class=""><p  class="text-decoration-nones"><v-icon class="mr-2 mb-1">mdi-map-marker-outline</v-icon>Бул.Јане Сандански бр.82 лок.16 (ТЦ Бисер II KAT Н.Аеродром)</p></li>

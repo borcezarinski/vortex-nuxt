@@ -1,8 +1,18 @@
 <template>
   <v-app>
     <Navbar ref="navbar" @changeTheme="changeTheme($event)" :key="'navbar-' + themeKey" />
+
     <v-container class="overflow-hidden" fluid>
       <div class="page-content mt-5">
+       <v-container>
+        <v-alert
+            type="primary"
+            prominent
+            class="mb-5"
+        >
+          Известување: Вортекс Компјутери нема да работи од 14ти Април до 23ти Април. Прв работен ден: 24ти Април.
+        </v-alert>
+       </v-container>
       <nuxt />
       </div>
     </v-container>
