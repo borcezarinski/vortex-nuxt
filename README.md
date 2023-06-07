@@ -1,7 +1,6 @@
 # vortex-nuxt
-vortex.com.mk
-
-Vortex.com.mk is a web shop application for IT equipment and support. This repository contains the source code and project files for the application.
+Vortex: IT Store & Service in Skopje, Macedonia. Nuxt.js + Vuetify. Light & dark themes, laptop animation, Vuetify datatable from CSV. Explore our wide range of products and services.
+Deploy on vortex.com.mk
 
 ## Prerequisites
 
