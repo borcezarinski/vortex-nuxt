@@ -1,6 +1,6 @@
 # vortex-nuxt
 Vortex: IT Store & Service in Skopje, Macedonia. Nuxt.js + Vuetify. Light & dark themes, laptop animation, Vuetify datatable from CSV. Explore our wide range of products and services.
-Deploy on vortex.com.mk
+www.vortex.com.mk
 
 ## Prerequisites
 
